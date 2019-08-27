@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 指定由spring负责action对象的创建 -->  
+   	<constant name="struts.objectFactory" value="spring" /> 
+   	
+	<!-- 该属性指定需要Struts2处理的请求后缀，该属性的默认值是action，即所有匹配*.action
+	的请求都由Struts 2处理。如果用户需要指定多个请求后缀，则多个后缀之间以英文逗号（，）隔开。 --> 
+	<constant name="struts.action.extension" value="action"></constant>
+	
+	<!-- 设置编码,相当于调用request的setCharacterEncoding -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+	<!-- 是否动态调用方法 ,在地址栏上敲击 ...login!update.action能调用该方法-->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	
+	<!-- *****start*****  -->
+	
+	<!-- 每次有HTTP请求到达时，系统都需要重新加载与国际化有关的资源文件 -->
+	<constant name="struts.il8n.reload" value="true"/>
+    
+    <!-- 当struts的配置文件修改后，系统就会自动重新加载struts.xml，而不需要重新启动Servlet容器,默认值为false，开发阶段最好true -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    
+    <!-- 设置浏览器是否缓存静态内容，默认值为true，开发阶段最好false -->
+    <constant name="struts.serve.static.browserCache " value="false"/>
+    
+    <!-- 开发模式下设为true，这样可以打印出更详细的错误信息 ，运行时设置为false-->
+    <constant name="struts.devMode" value="true"/>
+    
+    <!-- *****end***** -->
+	
+	<!-- 
+			1. class="userAction"
+			          从spring容器中获取名为userAction的实例，是由spring创建的bean实例
+			2. <param name="root"></param> 
+				默认将会序列全部有返回值的getter方法的值，而无论该方法是否有对应属性
+			3. <param name="excludeNullProperties">true</param> 
+                                            获取序列化不为null的属性，注意单个属性才存在null,像list空的话为list:{},这种还是会显示 
+			4. <param name="includeProperties">rows.*,total</param> 
+			 	只会取指定含get方法的属性值
+	-->
+    <package name="testPkg" extends="struts-default,json-default">
+    	<action name="userAction!*" class="userAction" method="{1}">
+    		<!-- 查询所有用户 -->
+    		<result name="success" type="json">
+    		    <param name="includeProperties">
+					rows.*,total
+				</param>  
+    		</result>
+    		<result name="operateSuccess" type="json">
+				<param name="includeProperties">
+					msg
+				</param>  
+			</result>
+			<result name="operateError" type="json">
+				<param name="includeProperties">
+					msg
+				</param>  
+			</result>
+			<result name="operateException" type="json">
+				<param name="includeProperties">
+					msg
+				</param>  
+			</result>
+    	</action>
+    </package>
+    
+</struts>

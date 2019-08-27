@@ -1,0 +1,18 @@
+table tr td{
+	text-align:center;
+	text-valign:center;
+}
+.TableStyle{
+	width:100%;
+}
+/**奇数列样式*/
+.TableStyle tr td:nth-of-type(odd){
+	text-align:right;
+}
+/**偶数列样式*/
+.TableStyle tr td:nth-of-type(even){
+	text-align:left;
+}
+.bottomButton{
+	text-align:center
+}

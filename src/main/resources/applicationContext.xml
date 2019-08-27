@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   						http://www.springframework.org/schema/context 
+   						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+  						http://www.springframework.org/schema/jee 
+  						http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+   						http://www.springframework.org/schema/tx 
+   						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+   						http://www.springframework.org/schema/aop 
+   						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	<!-- 引入hibernate配置 -->
+	<import resource="hibernate.cfg.xml" />
+   
+	<!-- 注解：扫描以下包并注入4个bean	
+		AutowiredAnnotationBeanPostProcessor
+		CommonAnnotationBeanPostProcessor
+		PersistenceAnnotationBeanPostProcessor
+		RequiredAnnotationBeanPostProcessor
+	-->
+	<context:component-scan base-package="com.beichende.assess.trade" />
+
+    <!-- 
+    	使用spring实现事务管理
+    	指定事务管理器类，将sessionFactory注入，
+    	会自动开启事务 session.beginTransaction();
+    	会自动提交事务 session.getTransaction().commit();
+  	-->  
+    <bean id="transactionManager"   class="org.springframework.orm.hibernate3.HibernateTransactionManager">  
+        <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>
+    
+    <!-- 注解：事务管理 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	-->
+	
+	<!-- 
+		XML：事务管理
+		为事务管理器类指定匹配器，通过用name指定的匹配字符串进行对对应的方法进行打开和关闭事务 
+		1.REQUIRED:如果当前已经存在事务，那么加入该事务，如果不存在事务，创建一个事务，这是默认值。
+		  SUPPORTS:如果当前已经存在事务，那么加入该事务，如果不存在事务，创建一个所谓的空事务（可以认为无事务执行）	
+		  MANDATORY:当前必须存在一个事务，否则抛出异常。
+		  REQUIRES_NEW:暂停当前事务(当前无事务则不需要)，创建一个新事务。 两个事务没有依赖关系，可以实现新事务回滚，但外部事务继续执行。	
+		  NEVER:如果当前存在事务，则抛出异常，否则在无事务环境上执行代码。
+		  NESTED:如果当前存在事务，则使用 SavePoint 技术把当前事务状态进行保存，然后底层共用一个连接，
+		  		  当NESTED内部出错的时候，自行回滚到 SavePoint这个状态，只要外部捕获到了异常，就可以继续
+		  		  进行外部的事务提交，而不会受到内嵌业务的干扰，但是，如果外部事务抛出了异常，整个大事务都会回滚。
+				注意： spring配置事务管理器要主动指定 nestedTransactionAllowed=true
+				
+		2.read-only:为true表示调用某个方法时，只获取用来查数据的连接，对数据库的是数据进行修改是无效的，目的是为了提高性能
+		3.默认发生runtimeExcwption(运行时异常)会进行事务回滚，当然也可自定义异常回滚
+	-->  
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">  
+       <tx:attributes>  
+           <tx:method name="save*"   propagation="REQUIRED" />
+           <tx:method name="add*"    propagation="REQUIRED" />
+           <tx:method name="insert*" propagation="REQUIRED" />    
+           <tx:method name="delete*" propagation="REQUIRED" />  
+           <tx:method name="modify*" propagation="REQUIRED" />
+           <tx:method name="edit*"   propagation="REQUIRED" />  
+           <tx:method name="update*" propagation="REQUIRED" />
+           <tx:method name="query*"  propagation="SUPPORTS" read-only="true"/>
+           <tx:method name="find*"   propagation="SUPPORTS" read-only="true"/>   
+           <tx:method name="list*"   propagation="SUPPORTS" read-only="true"/>
+       	   <tx:method name="*"   	 propagation="SUPPORTS" read-only="true"/>
+       </tx:attributes>  
+    </tx:advice> 
+
+	
+	<!-- 实例化 -->	
+	<bean id="AspectLog" class="com.beichende.assess.trade.log.AspectLog_xml"></bean>
+        
+    <!-- 
+    	XML：AOP切面和事务管理 
+        aop:poincut:定义切入面的作用范围,如下方定义的位置作为所有切面可用，当然也可以放在某个切面里面，这样就只有该切面可用  
+  		aop:advisor:事务管理
+  		aop:aspect:切面管理
+  	-->
+    <aop:config>
+    	<aop:pointcut id="servicePointcut" expression="execution(* com.beichende.assess.trade.service.impl.*.*(..))" />  
+	  	<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointcut"/> 	  	
+	  	<aop:aspect  ref="AspectLog" order="1">
+       		<aop:before          method="before"   			pointcut-ref="servicePointcut"/>
+       		<aop:after           method="after"    			pointcut-ref="servicePointcut"/>
+       		<aop:after-returning method="afterReturning"  	pointcut-ref="servicePointcut"/>
+      	</aop:aspect> 
+    </aop:config>
+</beans>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        				http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"> 
+          
+    <!--占位符属性配置器  -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="locations">  
+           <list>  
+                 <value>classpath:jdbc.properties</value>  
+           </list>  
+        </property>  
+    </bean>  
+  	
+  	<!-- 数据源的配置 -->
+    <bean id="dataSource"   class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+        <property name="driverClassName"  	value="${jdbc.driverClassName}"></property>  
+        <property name="url"       			value="${jdbc.url}"></property>  
+        <property name="username" 			value="${jdbc.username}"></property>  
+        <property name="password" 			value="${jdbc.password}"></property>  
+    </bean>
+    
+    <!-- AnnotationSessionFactoryBean继承了LocalSessionFactoryBean -->
+    <bean id="sessionFactory"   class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource"/> 
+        <property name="hibernateProperties">  
+            <props>  
+                <!--指定Hibernate使用的数据库方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<!-- 日志中打印SQL语句 -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 格式化SQL语句 -->
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- 将session交由spring去管理 -->
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate3.SpringSessionContext</prop>
+           		<!-- 使用二级缓存  -->
+        		<prop key="hibernate.cache.use_second_level_cache">true</prop>
+        		<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+       			<!-- 使用查询缓存,依赖于二级缓存 -->
+        		<prop key="hibernate.cache.use_query_cache">true</prop>
+            	
+            </props>  
+        </property>
+        
+	    <!--使用包扫描方式实例化(推荐) -->
+	    <property name="packagesToScan">
+	       <list>
+	            <value>com.beichende.assess.trade.pojo</value>
+	       </list>
+	    </property>
+    </bean> 
+       
+</beans>  
