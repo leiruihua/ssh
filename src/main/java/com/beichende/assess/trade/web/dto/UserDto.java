@@ -8,66 +8,65 @@
 package com.beichende.assess.trade.web.dto;
 
 
-
 /**
- *<简述功能>
- *<功能详细描述>
+ * <简述功能>
+ * <功能详细描述>
+ *
  * @see
- * @since
  */
 public class UserDto {
-	private Integer userNo;
-	private String userName;
-	private String userSex;
-	private Integer userAge;
-	private String userPhone;
+    private Integer userNo;
+    private String userName;
+    private String userSex;
+    private Integer userAge;
+    private String userPhone;
 
-	public Integer getUserNo() {
-		return userNo;
-	}
-
-
-	public void setUserNo(Integer userNo) {
-		this.userNo = userNo;
-	}
+    public Integer getUserNo() {
+        return userNo;
+    }
 
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setUserNo(Integer userNo) {
+        this.userNo = userNo;
+    }
 
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
 
-	public String getUserSex() {
-		return userSex;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
 
-	public void setUserSex(String userSex) {
-		this.userSex = userSex;
-	}
+    public String getUserSex() {
+        return userSex;
+    }
 
 
-	public Integer getUserAge() {
-		return userAge;
-	}
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
+    }
 
 
-	public void setUserAge(Integer userAge) {
-		this.userAge = userAge;
-	}
+    public Integer getUserAge() {
+        return userAge;
+    }
 
 
-	public String getUserPhone() {
-		return userPhone;
-	}
+    public void setUserAge(Integer userAge) {
+        this.userAge = userAge;
+    }
 
 
-	public void setUserPhone(String userPhone) {
-		this.userPhone = userPhone;
-	}
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
 }

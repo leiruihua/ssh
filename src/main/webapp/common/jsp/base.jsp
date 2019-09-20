@@ -1,3 +1,3 @@
 <%
-request.setAttribute("path", request.getContextPath());
+    request.setAttribute("path", request.getContextPath());
 %>
