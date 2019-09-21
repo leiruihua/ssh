@@ -6,6 +6,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>用户测试-easyui</title>
+    <!-- 让浏览器不去请求网站根目录favicon.ico图标，IE8及以下浏览器不支持 -->
+    <link rel="icon" href="data:image/ico;base64,aWNv">
     <link rel="stylesheet" type="text/css" href="${path}/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="${path}/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="${path}/admin/user/css/user.css">
