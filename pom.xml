@@ -22,11 +22,13 @@
 		<version>1.2.17</version>
 	</dependency>
 	<!-- oracle驱动包 -->
-	<dependency>
-	  	<groupId>com.oracle.driver</groupId>
+  	<dependency>
+	  	<groupId>com.oracle</groupId>
 	  	<artifactId>ojdbc6</artifactId>
-	  	<version>11.2.0.3.0</version>
-	</dependency>
+	  	<version>6</version>
+	  	<scope>system</scope>
+	  	<systemPath>${project.basedir}/src/main/lib/ojdbc6.jar</systemPath>
+  	</dependency>
     <!-- Javassist(JAVA编程助手)是一个开源的分析、编辑和创建Java字节码的类库 -->
 	<dependency>
 		<groupId>javassist</groupId>
