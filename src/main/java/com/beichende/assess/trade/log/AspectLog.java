@@ -1,10 +1,3 @@
-/**
- * @author 雷瑞铧
- * @version 1.0.0
- * @filename AspectLog.java
- * @time 2017年9月12日 下午7:42:17
- * @copyright(C) 2017 深圳市北辰德科技股份有限公司
- */
 package com.beichende.assess.trade.log;
 
 import java.text.SimpleDateFormat;
@@ -26,14 +19,14 @@ import org.aspectj.lang.annotation.Pointcut;
  */
 //@Aspect
 public class AspectLog {
+
     private static Logger logger = Logger.getLogger(AspectLog.class.getName());
 
     //获取当前时间
     public String getCurrentTime() {
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         long currentTime = System.currentTimeMillis();
-        String currentTimeFormat = dateformat.format(currentTime);
-        return currentTimeFormat;
+        return dateformat.format(currentTime);
     }
 
 

@@ -6,171 +6,171 @@
   <artifactId>assess_ssh</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>assess_ssh Maven Webapp</name>
+  <name>ssh Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <!-- slf4j和log4i连接包 -->
-    <dependency>
-	  	<groupId>org.slf4j</groupId>
-	  	<artifactId>slf4j-log4j12</artifactId>
-	  	<version>1.6.6</version>
-	</dependency>
-	<!-- log4j的日志包 -->
-	<dependency>
-	 	<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
-	</dependency>
-	<!-- oracle驱动包 -->
-  	<dependency>
-	  	<groupId>com.oracle</groupId>
-	  	<artifactId>ojdbc6</artifactId>
-	  	<version>6</version>
-	  	<scope>system</scope>
-	  	<systemPath>${project.basedir}/src/main/lib/ojdbc6.jar</systemPath>
-  	</dependency>
-    <!-- Javassist(JAVA编程助手)是一个开源的分析、编辑和创建Java字节码的类库 -->
-	<dependency>
-		<groupId>javassist</groupId>
-		<artifactId>javassist</artifactId>
-		<version>3.9.0.GA</version>
-	</dependency>
-	<!-- oracle网发布的,tomcat有自带的servlet-api.jar包 -->
-    <dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>servlet-api</artifactId>
-		<version>2.4</version>
-	</dependency>
+	  <!-- lombok 包-->
+	  <dependency>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>1.18.12</version>
+	  </dependency>
+	  <!-- slf4j和log4i连接包 -->
+	  <dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-log4j12</artifactId>
+		  <version>1.6.6</version>
+	  </dependency>
+	  <!-- log4j的日志包 -->
+	  <dependency>
+		  <groupId>log4j</groupId>
+		  <artifactId>log4j</artifactId>
+		  <version>1.2.17</version>
+	  </dependency>
+	  <!-- oracle驱动包 -->
+	  <dependency>
+		  <groupId>com.oracle</groupId>
+		  <artifactId>ojdbc6</artifactId>
+		  <version>6</version>
+		  <scope>system</scope>
+		  <systemPath>${project.basedir}/src/main/lib/ojdbc6.jar</systemPath>
+  	  </dependency>
+	  <!-- Javassist(JAVA编程助手)是一个开源的分析、编辑和创建Java字节码的类库 -->
+	  <dependency>
+		  <groupId>javassist</groupId>
+		  <artifactId>javassist</artifactId>
+		  <version>3.9.0.GA</version>
+	  </dependency>
+	  <!-- oracle网发布的,tomcat有自带的servlet-api.jar包 -->
+	  <dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>servlet-api</artifactId>
+		  <version>2.4</version>
+	  </dependency>
     
     
-    <!-- struts2的核心包，其依赖包会自动下载 -->
-	<dependency>
-		<groupId>org.apache.struts</groupId>
-		<artifactId>struts2-core</artifactId>
-		<version>2.3.34</version>
-	</dependency>
-	<!-- 将struts返回的数据装配成JSON对象 -->
-	<dependency>
-		<groupId>org.apache.struts</groupId>
-		<artifactId>struts2-json-plugin</artifactId>
-		<version>2.3.34</version>
-	</dependency>
+      <!-- struts2的核心包，其依赖包会自动下载 -->
+	  <dependency>
+		  <groupId>org.apache.struts</groupId>
+		  <artifactId>struts2-core</artifactId>
+		  <version>2.3.34</version>
+	  </dependency>
+	  <!-- 将struts返回的数据装配成JSON对象 -->
+	  <dependency>
+		  <groupId>org.apache.struts</groupId>
+		  <artifactId>struts2-json-plugin</artifactId>
+		  <version>2.3.34</version>
+	  </dependency>
 	
-	<!-- spring的核心包，其他依赖包会自动下载 -->
+	  <!-- spring的核心包，其他依赖包会自动下载 -->
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-tx</artifactId>
+		  <version>3.0.5.RELEASE</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-orm</artifactId>
+		  <version>3.0.5.RELEASE</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-web</artifactId>
+		  <version>3.0.5.RELEASE</version>
+	  </dependency>
 
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-tx</artifactId>  
-	    <version>3.0.5.RELEASE</version>  
-	</dependency>  
- 	
- 	<dependency>
-	  	<groupId>org.springframework</groupId>
-	  	<artifactId>spring-orm</artifactId>
-	 	<version>3.0.5.RELEASE</version>
-	</dependency>
-	
-	<dependency>
-	  	<groupId>org.springframework</groupId>
-	  	<artifactId>spring-web</artifactId>
-	  	<version>3.0.5.RELEASE</version>
-	</dependency>
-	
-	<!-- 面向切面编程的实现 -->
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-aop</artifactId>
-		<version>3.0.5.RELEASE</version>
-	</dependency>
-	<!-- aop要依赖aspectjweaver -->
-	<dependency>
-		<groupId>org.aspectj</groupId>
-		<artifactId>aspectjweaver</artifactId>
-		<version>1.7.1</version>
-	</dependency>
-	<!-- 动态代理，spring的AOP事务会用到 -->
-	<dependency>
-		<groupId>cglib</groupId>
-		<artifactId>cglib</artifactId>
-		<version>2.2.2</version>
-	</dependency>
-	
-	
-	
-	<!-- struts2与spring的整合插件 -->
-	<dependency>
-		<groupId>org.apache.struts</groupId>
-		<artifactId>struts2-spring-plugin</artifactId>
-		<version>2.3.34</version>
-		<exclusions>
-			<exclusion>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-core</artifactId>
-			</exclusion>
-			<exclusion>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-beans</artifactId>
-			</exclusion>
-			<exclusion>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
-			</exclusion>
-			<exclusion>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-web</artifactId>
-			</exclusion>
-		</exclusions>
-	</dependency>
-	
-	<!-- hibernate配置 -->
-	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-ehcache</artifactId>
-		<version>3.3.2.GA</version>
-		<exclusions>
-			<exclusion>
-				<groupId>xml-apis</groupId>
-				<artifactId>xml-apis</artifactId>
-			</exclusion>
-			<exclusion>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-			</exclusion>
-		</exclusions>
-	</dependency>
-	<!-- Hibernate注解 -->
-	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-annotations</artifactId>
-		<version>3.3.1.GA</version>
-		<exclusions>
-			<exclusion>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate</artifactId>
-			</exclusion>
-			<exclusion>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
-			</exclusion>
-		</exclusions>
-	</dependency>
+	  <!-- 面向切面编程的实现 -->
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-aop</artifactId>
+		  <version>3.0.5.RELEASE</version>
+	  </dependency>
+	  <!-- aop要依赖aspectjweaver -->
+	  <dependency>
+		  <groupId>org.aspectj</groupId>
+		  <artifactId>aspectjweaver</artifactId>
+		  <version>1.7.1</version>
+	  </dependency>
+	  <!-- 动态代理，spring的AOP事务会用到 -->
+	  <dependency>
+		  <groupId>cglib</groupId>
+		  <artifactId>cglib</artifactId>
+		  <version>2.2.2</version>
+	  </dependency>
 
+	  <!-- struts2与spring的整合插件 -->
+	  <dependency>
+		  <groupId>org.apache.struts</groupId>
+		  <artifactId>struts2-spring-plugin</artifactId>
+		  <version>2.3.34</version>
+		  <exclusions>
+			  <exclusion>
+				  <groupId>org.springframework</groupId>
+				  <artifactId>spring-core</artifactId>
+			  </exclusion>
+			  <exclusion>
+				  <groupId>org.springframework</groupId>
+				  <artifactId>spring-beans</artifactId>
+			  </exclusion>
+			  <exclusion>
+				  <groupId>org.springframework</groupId>
+				  <artifactId>spring-context</artifactId>
+			  </exclusion>
+			  <exclusion>
+				  <groupId>org.springframework</groupId>
+				  <artifactId>spring-web</artifactId>
+			  </exclusion>
+		  </exclusions>
+	  </dependency>
+
+	  <!-- hibernate配置 -->
+	  <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-ehcache</artifactId>
+		  <version>3.3.2.GA</version>
+		  <exclusions>
+			  <exclusion>
+				  <groupId>xml-apis</groupId>
+				  <artifactId>xml-apis</artifactId>
+			  </exclusion>
+			  <exclusion>
+				  <groupId>org.slf4j</groupId>
+				  <artifactId>slf4j-api</artifactId>
+			  </exclusion>
+		  </exclusions>
+	  </dependency>
+	  <!-- Hibernate注解 -->
+	  <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-annotations</artifactId>
+		  <version>3.3.1.GA</version>
+		  <exclusions>
+			  <exclusion>
+				  <groupId>org.hibernate</groupId>
+				  <artifactId>hibernate</artifactId>
+			  </exclusion>
+			  <exclusion>
+				  <groupId>commons-logging</groupId>
+				  <artifactId>commons-logging</artifactId>
+			  </exclusion>
+		  </exclusions>
+	  </dependency>
   </dependencies>
   
   
   <build>
-    <finalName>assess_ssh</finalName>
-    <!-- 在setting.xml配置了jdk的版本这里就不用配置 -->
-    <plugins>
-	    <plugin>  
-			<groupId>org.apache.maven.plugins</groupId>  
-			<artifactId>maven-compiler-plugin</artifactId>  
-			<version>2.4</version>  
-			<configuration>  
-				<source>1.7</source>  
-				<target>1.7</target>  
-			</configuration>  
-		</plugin>
-    </plugins>
+	  <finalName>assess_ssh</finalName>
+	  <!-- 在setting.xml配置了jdk的版本这里就不用配置 -->
+	  <plugins>
+		  <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-compiler-plugin</artifactId>
+			  <version>2.4</version>
+			  <configuration>
+				  <source>1.7</source>
+				  <target>1.7</target>
+			  </configuration>
+		  </plugin>
+	  </plugins>
   </build>
 </project>

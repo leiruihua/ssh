@@ -1,10 +1,3 @@
-/**
- * @author 雷瑞铧
- * @version 1.0.0
- * @filename BaseDao.java
- * @time 2017年4月29日 下午2:39:24
- * @copyright(C) 2017 深圳市北辰德科技股份有限公司
- */
 package com.beichende.assess.trade.dao;
 
 import java.io.Serializable;
@@ -22,6 +15,7 @@ import org.hibernate.SessionFactory;
  * @see
  */
 public class BaseDao<T> {
+
     @Resource(name = "sessionFactory")
     protected SessionFactory sessionFactory;
 

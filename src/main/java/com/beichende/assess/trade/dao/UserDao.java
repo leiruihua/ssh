@@ -1,10 +1,3 @@
-/**
- * @author 雷瑞铧
- * @version 1.0.0
- * @filename UserDao.java
- * @time 2017年5月5日 上午10:57:45
- * @copyright(C) 2017 深圳市北辰德科技股份有限公司
- */
 package com.beichende.assess.trade.dao;
 
 import java.util.ArrayList;
@@ -12,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
@@ -33,8 +27,10 @@ import com.beichende.assess.trade.web.dto.UserDto;
 @Repository(value = "userDao")
 public class UserDao extends BaseDao<User> {
 
+    private static final Logger logger = Logger.getLogger(UserDao.class.getName());
+
     UserDao() {
-        System.out.println("创建UserDao实例");
+        logger.info("创建UserDao实例");
     }
 
     //查找用户

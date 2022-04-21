@@ -1,10 +1,3 @@
-/**
- * @author 雷瑞铧
- * @version 1.0.0
- * @filename UserServiceImpl.java
- * @time 2017年5月5日 上午11:20:46
- * @copyright(C) 2017 深圳市北辰德科技股份有限公司
- */
 package com.beichende.assess.trade.service.impl;
 
 import java.util.List;
@@ -30,7 +23,8 @@ import com.beichende.assess.trade.web.dto.UserDto;
 
 @Service(value = "userService")
 public class UserServiceImpl implements IUserService {
-    private static Logger logger = Logger.getLogger(UserServiceImpl.class.getName());
+
+    private static final Logger logger = Logger.getLogger(UserServiceImpl.class.getName());
     @Autowired
     private UserDao userDao;
 

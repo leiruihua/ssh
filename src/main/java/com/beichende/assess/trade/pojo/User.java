@@ -1,10 +1,3 @@
-/**
- * @author 雷瑞铧
- * @version 1.0.0
- * @filename UserDto.java
- * @time 2017年3月9日 下午7:19:38
- * @copyright(C) 2017 深圳市北辰德科技股份有限公司
- */
 package com.beichende.assess.trade.pojo;
 
 import javax.persistence.Column;
@@ -25,12 +18,12 @@ import javax.persistence.Table;
 @Table(name = "yolanda_userDto")
 public class User {
 
-    private Integer userNo;        //用户编号->主键
+    private Integer userNo;     //用户编号->主键
     private String userName;    //用户名
     private Integer userSex;    //用户性别
     private Integer userAge;    //用户年龄
-    private String userPhone;    //手机号码
-    private String userQQ;        //用户QQ
+    private String userPhone;   //手机号码
+    private String userQQ;      //用户QQ
 
 
     @Id

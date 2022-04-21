@@ -122,26 +122,26 @@
             <table class="TableStyle">
                 <tr>
                     <td>姓&nbsp;&nbsp;名:</td>
-                    <td><input class="easyui-validatebox" type="text" name="user.userName"
+                    <td><input class="easyui-validatebox" type="text" name="userOne.userName"
                                data-options="required:true,validType:['CHS','length[2,4]']"></input></td>
                 </tr>
                 <tr>
                     <td>性&nbsp;&nbsp;别:</td>
                     <td>
-                        <input class="easyui-validatebox" type="radio" name="user.userSex" data-options="required:true"
+                        <input class="easyui-validatebox" type="radio" name="userOne.userSex" data-options="required:true"
                                value="1" checked="checked"/>男
-                        <input class="easyui-validatebox" type="radio" name="user.userSex" data-options="required:true"
+                        <input class="easyui-validatebox" type="radio" name="userOne.userSex" data-options="required:true"
                                value="2"/>女
                     </td>
                 </tr>
                 <tr>
                     <td>年&nbsp;&nbsp;龄:</td>
-                    <td><input class="easyui-validatebox" type="text" name="user.userAge"
+                    <td><input class="easyui-validatebox" type="text" name="userOne.userAge"
                                data-options="required:true,validType:'Age'"></input></td>
                 </tr>
                 <tr>
                     <td>手机号码:</td>
-                    <td><input class="easyui-validatebox" type="text" name="user.userPhone"
+                    <td><input class="easyui-validatebox" type="text" name="userOne.userPhone"
                                data-options="required:true,validType:'Mobile'"></input></td>
                 </tr>
             </table>
@@ -160,30 +160,30 @@
      style="width:400px;height:200px;padding:10px">
     <div id="userEditBox" style="display:none;">
         <form id="userEditForm" method="post">
-            <input id="userNo2" name="user2.userNo" value="1" type="hidden"/>
+            <input id="userNo2" name="userTwo.userNo" value="1" type="hidden"/>
             <table class="TableStyle">
                 <tr>
                     <td align="right">姓&nbsp;&nbsp;名:</td>
-                    <td align="left"><input id="userName2" name="user2.userName" class="easyui-validatebox" type="text"
+                    <td align="left"><input id="userName2" name="userTwo.userName" class="easyui-validatebox" type="text"
                                             data-options="required:true,validType:['CHS','length[2,4]']"></input></td>
                 </tr>
                 <tr>
                     <td>性&nbsp;&nbsp;别:</td>
                     <td>
-                        <input id="userSex21" name="user2.userSex" class="easyui-validatebox" type="radio"
+                        <input id="userSex21" name="userTwo.userSex" class="easyui-validatebox" type="radio"
                                data-options="required:true" value="1"/><label>男</label>
-                        <input id="userSex22" name="user2.userSex" class="easyui-validatebox" type="radio"
+                        <input id="userSex22" name="userTwo.userSex" class="easyui-validatebox" type="radio"
                                data-options="required:true" value="2"/><label>女</label>
                     </td>
                 </tr>
                 <tr>
                     <td>年&nbsp;&nbsp;龄:</td>
-                    <td><input id="userAge2" name="user2.userAge" class="easyui-validatebox" type="text"
+                    <td><input id="userAge2" name="userTwo.userAge" class="easyui-validatebox" type="text"
                                data-options="required:true,validType:'Age'"></input></td>
                 </tr>
                 <tr>
                     <td>手机号码:</td>
-                    <td><input id="userPhone2" name="user2.userPhone" class="easyui-validatebox" type="text"
+                    <td><input id="userPhone2" name="userTwo.userPhone" class="easyui-validatebox" type="text"
                                data-options="required:true,validType:'Mobile'"></input></td>
                 </tr>
             </table>
