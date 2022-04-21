@@ -25,7 +25,7 @@ $(function () {
     });
     //异步tree
     $("#div_leftmenu").tree({
-        url: 'http://localhost:8080/assess_ssh/menuAction!queryMenu.action',
+        url: 'http://localhost:8080/ssh/menuAction!queryMenu.action',
         lines: true
     });
 

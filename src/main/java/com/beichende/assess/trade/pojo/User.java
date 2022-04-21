@@ -15,7 +15,7 @@ import javax.persistence.Table;
  * @see
  */
 @Entity
-@Table(name = "yolanda_userDto")
+@Table(name = "demo_user")
 public class User {
 
     private Integer userNo;     //用户编号->主键
@@ -27,8 +27,8 @@ public class User {
 
 
     @Id
-    @GeneratedValue(generator = "seq_yolanda_userDto", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "seq_yolanda_userDto", sequenceName = "seq_yolanda_userDto", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(generator = "seq_demo_user", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "seq_demo_user", sequenceName = "seq_demo_user", allocationSize = 1, initialValue = 1)
     @Column(name = "USERNO")
     public Integer getUserNo() {
         return userNo;

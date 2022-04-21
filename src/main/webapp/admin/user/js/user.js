@@ -252,7 +252,7 @@ function userAddSubmitForm() {
 }
 
 //右击选择修改
-function rightClickupdateUser() {
+function rightClickUpdateUser() {
     var row = $('#tt').datagrid('getSelected');//获取表格中单选选中的数据
     if (row) {
         $('#dlgUserEdit').dialog('open');
@@ -327,10 +327,10 @@ var initialFormValue = "";
 
 function setFormValue(row) {
     $('#userEditForm').form('load', {//往表单塞值
-        'user2.userNo': row.userNo,
-        'user2.userName': row.userName,
-        'user2.userAge': row.userAge,
-        'user2.userPhone': row.userPhone,
+        'userTwo.userNo': row.userNo,
+        'userTwo.userName': row.userName,
+        'userTwo.userAge': row.userAge,
+        'userTwo.userPhone': row.userPhone,
     });
     if ($('#userSex21').next().text() == row.userSex) {
         $('#userSex21').attr("checked", true);

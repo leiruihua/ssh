@@ -24,7 +24,9 @@
 <div class="easyui-layout" data-options="fit:true">
     <div id="conArea" data-options="region:'north',border:false" style="height:70px;">
         <div class="easyui-layout" data-options="fit:true">
+
             <div id="panel0" data-options="region:'west',border:false" style="width:4px;"></div>
+
             <div id="panel1" data-options="region:'center',border:false"
                  style="visibility: hidden;overflow: hidden; padding: 0px;background-color:#f6f6f6">
                 <form id="vagueQuery" method="post">
@@ -56,13 +58,16 @@
                     </table>
                 </form>
             </div>
+
             <div id="panel2" data-options="region:'east',border:false" style="width:4px;"></div>
+
             <div id="panel3" data-options="region:'north',border:false"
                  style="visibility:hidden;height:32px; overflow: hidden;">
                 <div class="easyui-tabs" fit="true" border="false">
                     <div title="用户管理"></div>
                 </div>
             </div>
+
             <div id="panel4" data-options="region:'south',border:false" style="height:2px; overflow: hidden;"></div>
         </div>
     </div>
@@ -154,6 +159,7 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-redo'"
        onclick="$('#ff').find(':text').val('');">重置</a>
 </div>
+
 <!-- 修改用户-->
 <div id="dlgUserEdit" class="easyui-dialog" title="修改用户"
      data-options="iconCls:'icon-save',closed:true,modal:true,buttons:'#userEditBottomButton'"
@@ -172,7 +178,7 @@
                     <td>
                         <input id="userSex21" name="userTwo.userSex" class="easyui-validatebox" type="radio"
                                data-options="required:true" value="1"/><label>男</label>
-                        <input id="userSex22" name="userTwo.userSex" class="easyui-validatebox" type="radio"
+                        <input id="userSex22" name="userSex" class="easyui-validatebox" type="radio"
                                data-options="required:true" value="2"/><label>女</label>
                     </td>
                 </tr>
@@ -196,11 +202,12 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'"
        onclick="$('#dlgUserEdit').dialog('close')">取消</a>
 </div>
+
 <!--点击鼠标右键弹出的菜单  -->
 <div id="menu" class="easyui-menu" style="width:50px;display:none">
     <div onclick="$('#dlgUserAdd').dialog('open')" iconCls="icon-add">新增</div>
     <div onclick="deleteCheckedUser()" iconCls="icon-remove">删除</div>
-    <div onclick="rightClickupdateUser()" iconCls="icon-edit">修改</div>
+    <div onclick="rightClickUpdateUser()" iconCls="icon-edit">修改</div>
 </div>
 
 </body>
