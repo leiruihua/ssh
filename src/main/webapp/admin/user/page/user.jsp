@@ -178,7 +178,7 @@
                     <td>
                         <input id="userSex21" name="userTwo.userSex" class="easyui-validatebox" type="radio"
                                data-options="required:true" value="1"/><label>男</label>
-                        <input id="userSex22" name="userSex" class="easyui-validatebox" type="radio"
+                        <input id="userSex22" name="userTwo.userSex" class="easyui-validatebox" type="radio"
                                data-options="required:true" value="2"/><label>女</label>
                     </td>
                 </tr>
